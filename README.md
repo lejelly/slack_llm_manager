@@ -1,12 +1,8 @@
 # slack_bot
 
 ```
-git clone https://github.com/lejelly/slack_bot.git
+git clone https://github.com/lejelly/slack_bot.git;cd slack_bot
 ```
-```
-cd slack_bot
-```
-
 ```
 docker build -t lejelly/slack_bot:20240121 .
 ```
