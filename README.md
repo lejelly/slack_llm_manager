@@ -22,6 +22,7 @@ git remote set-url origin https://lejelly:ghp_YxVnTbrJfdOcGCqsMCKcTh80q54IaQ1Wcl
 ```
 
 デプロイ用
+- Dockerfileの最後の行のコメントアウトを外す
 ```
 docker run -d --name jeong_slack_bot lejelly/slack_bot:20240121
 ```
