@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.DEBUG)
 app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 
 @app.command("/modal-command")
-def handle_shortcuts(ack: Ack, body: dict, client: WebClient):
+def handle_some_command(ack: Ack, body: dict, client: WebClient):
     # 受信した旨を 3 秒以内に Slack サーバーに伝えます
     ack()
     # views.open という API を呼び出すことでモーダルを開きます
@@ -33,8 +33,17 @@ def handle_shortcuts(ack: Ack, body: dict, client: WebClient):
                     "label": {"type": "plain_text", "text": "何らかのデータ登録"},
                 },
             ],
+            "notify_on_close": True,
         },
     )
+
+@app.view_closed("modal-id")
+def handle_view_closed(ack: Ack, view: dict, logger: logging.Logger):
+    # 受信した旨を 3 秒以内に Slack サーバーに伝えます
+    ack()
+    # 処理中だったバックエンド処理を中止したり、完了通知を DM に切り替えるために
+    # この閉じられたという状態を view_id と紐づけて保存しておく
+    logger.info(view) 
     
 # view.callback_id にマッチングする（正規表現も可能）
 @app.view("modal-id")
@@ -81,7 +90,7 @@ def handle_view_events(ack: Ack, view: dict, client: WebClient):
         # ここでは ^ の ack() で hash がすでに更新されているので渡さない
         # hash=view.get("hash"),
     )
-    
+
 
 if __name__ == "__main__":
     # ソケットモードのコネクションを確立
