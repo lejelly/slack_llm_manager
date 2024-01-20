@@ -3,6 +3,11 @@
 ```
 git clone https://github.com/lejelly/slack_bot.git
 ```
+```
+cd slack_bot
+git config --global user.email j.seongcheol118@gmail.com
+git config --global user.name lejelly
+```
 
 ```
 docker build -t lejelly/slack_bot:20240121 .
