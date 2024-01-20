@@ -5,7 +5,10 @@ ENV SLACK_BOT_TOKEN xoxb-3286178968-6497726610246-nf15Q6YC7HaEd87oiqgE4V1q
 ENV OPENAI_API_KEY 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
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y git
+CMD sh -c "git config --global user.email j.seongcheol118@gmail.com && \
+            git config --global user.name lejelly"
 RUN mkdir src
 COPY src src/
 RUN pip install -r ./src/requirements.txt
+WORKDIR /slack_bot
 #ENTRYPOINT [ "python", "app.py" ]
