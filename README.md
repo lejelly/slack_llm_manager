@@ -4,7 +4,7 @@
 git clone https://github.com/lejelly/slack_bot.git
 ```
 ```
-cd slack_bot;git config --global user.email j.seongcheol118@gmail.com;git config --global user.name lejelly
+cd slack_bot
 ```
 
 ```
@@ -14,6 +14,10 @@ docker build -t lejelly/slack_bot:20240121 .
 開発用
 ```
 docker run -it -v /Users/jeong/Dev/slack_bot:/slack_bot --name jeong_slack_bot lejelly/slack_bot:20240121 /bin/bash
+```
+git setting
+```
+git config --global user.email j.seongcheol118@gmail.com;git config --global user.name lejelly
 ```
 
 デプロイ用
