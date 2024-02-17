@@ -27,6 +27,6 @@ docker build -t lejelly/slack_llm_manager:20240121 .
 ```
 docker run -d --name slack_llm_manager lejelly/slack_llm_manager:20240121
 ```
-
+コンテナの起動とともにアプリケーションがデプロイされる
 
 
