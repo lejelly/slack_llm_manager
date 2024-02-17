@@ -20,7 +20,7 @@ docker run -it -v Path/to/your/local/dir/you/want/to/mount --name dev_slack_llm_
 ```
 
 ## デプロイ用
-- Dockerfileの最後の行のコメントアウトを外す
+- Dockerfileの最後の行のコメントアウトを外す-> `ENTRYPOINT [ "python", "app.py" ]`
 ```
 docker build -t lejelly/slack_llm_manager:20240121 .
 ```
