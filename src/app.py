@@ -3,7 +3,7 @@ import logging
 from slack_bolt import App, Ack, Say, BoltContext, Respond
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 from slack_sdk import WebClient
-from  openai import OpenAI
+from openai import OpenAI
 
 # デバッグレベルのログを有効化
 logging.basicConfig(level=logging.DEBUG)
@@ -100,16 +100,16 @@ def handle_view_events(ack: Ack, view: dict, client: WebClient):
 
 def query_gpt_chat(input_str):
     try:
-        f = open('/Dev/slack_bot/prompt/system.txt', 'r', encoding='UTF-8')
+        f = open('/Dev/slack_llm_manager/prompt/system.txt', 'r', encoding='UTF-8')
         system_content = f.read()
         f.close()
-        f = open('/Dev/slack_bot/prompt/fewshot.txt', 'r', encoding='UTF-8')
+        f = open('/Dev/slack_llm_manager/prompt/fewshot.txt', 'r', encoding='UTF-8')
         fewshot = f.read()
         f.close()
-        f = open('/Dev/slack_bot/prompt/user.txt', 'r', encoding='UTF-8')
+        f = open('/Dev/slack_llm_manager/prompt/user.txt', 'r', encoding='UTF-8')
         user = f.read()
         f.close()
-        f = open('/Dev/slack_bot/prompt/community_info.txt', 'r', encoding='UTF-8')
+        f = open('/Dev/slack_llm_manager/prompt/community_info.txt', 'r', encoding='UTF-8')
         community_info = f.read()
         f.close()
         
